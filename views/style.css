@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+body {
+    background-image: url(https://png.pngtree.com/background/20210709/original/pngtree-food-western-food-steak-tomato-picture-image_941801.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+
+.signUpInForm{
+    width: 300px;
+    margin: auto;
+    /* position: relative; */
+    align-items: center;
+    top: 20px;
+}
+
+
+.SignIn{
+    font-family: 'Dancing Script', cursive;
+    color: azure;
+}
+
+
+.aks_header {
+    width: 75%;
+    margin: 25px auto;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    opacity: 0.5;
+    background-color: white;
+    border-radius: 50px;
+}
+
+
+.part > a > img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.part1 > a > img:hover {
+    width: 100px;
+    border-radius: 50%;
+}
+
+
+.part1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.part2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.part2 > a {
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.5em 0.5em;
+    border-radius: 0.5em;
+    color: black
+}
+
+
+.part2 > a:hover {
+    background: linear-gradient(to right, black, black, transparent);
+    /* background-color: black; */
+    color: white;
+    opacity: 1;
+}
+
+
+.part1, .part2 {
+    width: 50%
+}
+   
