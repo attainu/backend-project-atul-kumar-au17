@@ -40,6 +40,12 @@ menuRoutes.get('/completeMenu', async (req, res) => {
         const completeMenu = await MenuModel.find({})
         console.log(completeMenu)
 
+        res.send({
+            error:false,
+            message: "Succ",
+            data: completeMenu
+        })
+
     } catch (error) {
 
         res.send({

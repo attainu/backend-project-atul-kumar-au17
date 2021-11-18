@@ -47,7 +47,7 @@
     
     <footer>This is footer</footer>
 
-    <script>
+    <!-- <script>
 
         const body = document.getElementById('body')[0];
         const dishesList = document.getElementById("dishesList");
@@ -59,6 +59,59 @@
 
             console.log("coming from getMenu()");
             
+        }
+
+        getMenu()
+
+        
+        
+    </script> -->
+
+    <script>
+
+        
+        const dishesList = document.getElementById("dishesList");
+        const completeMenu = document.getElementById('completeMenu');
+
+
+        async function getMenu() {
+
+            console.log("coming from getMenu()");
+
+            const response = await fetch('/menu/completeMenu');
+            const jsonResponseData = await response.json();
+
+            
+            
+            let divs = ``
+
+            jsonResponseData.data.forEach(item => {
+
+                divs += `
+                <div class="bg-white">
+                    <p>${item.name}</p>
+                    <p>${item.price}</p>
+                    <img src="https://www.aspicyperspective.com/wp-content/uploads/2015/09/garlic-lime-skillet-chicken-8-256x256.jpg" width="200">
+                    <button type="submit">Add</button>
+                <div>`
+
+                // let div = document.createElement("div");
+                // div.innerHTML = `
+                // <div class="bg-white">
+                //     <p>${item.name}</p>
+                //     <p>${item.price}</p>
+                //     <img src="https://www.aspicyperspective.com/wp-content/uploads/2015/09/garlic-lime-skillet-chicken-8-256x256.jpg" width="200">
+                //     <button type="submit">Add</button>
+                // <div>
+                // `
+                // dishesList.appendChild(div)
+
+            })
+
+
+            let div = document.createElement("div");
+            div.innerHTML = divs
+            dishesList.appendChild(div)
         }
 
         getMenu()
