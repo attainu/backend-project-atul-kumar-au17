@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const databaseUrl = 'mongodb+srv://w27d4userSignUpData:XmGZxQUFihfKtaPI@cluster0.vqljt.mongodb.net/SignUpData?retryWrites=true&w=majority'
+const databaseUrl = process.env.DATABASE_URL
 
 // w27d4userSignUpData
 // XmGZxQUFihfKtaPI
