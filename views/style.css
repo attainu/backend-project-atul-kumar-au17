@@ -71,14 +71,14 @@ body {
 
 
 .part2 > a:hover {
-    background: linear-gradient(to right, black, black, transparent);
+    background: linear-gradient(to bottom, black, black, transparent);
     /* background-color: black; */
     color: white;
     opacity: 1;
 }
 
 
-.part1, .part2 {
-    width: 50%
+.part1, .part3 {
+    width: 20%
 }
    

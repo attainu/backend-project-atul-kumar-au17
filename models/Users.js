@@ -8,12 +8,12 @@ dbConnection.dbInit()
 
 const UserSchema = new mongoose.Schema({
 
-    name: String,
-    phone: String,
-    email: String,
-    password: String,
+    name: { type: String, required: true },
+    phone: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
 
-})
+}, { timestamp: true });
 
 const UserModel = mongoose.model('Users', UserSchema)
 

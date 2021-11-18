@@ -4,6 +4,7 @@ const menuRoutes = Router()
 
 const MenuModel = require('../models/Menu');
 
+
 // create a menu item
 menuRoutes.post('/addDish', async (req, res) => {
 
@@ -11,15 +12,10 @@ menuRoutes.post('/addDish', async (req, res) => {
 
     try {
 
-        // const  insertMenuItem = await MenuModel.create(req.body)
-        // console.log(insertMenuItem);
-        // res.redirect(`${__dirname}`)
-        res.send({
-            data: req.body,
-            path: `${__dirname}`
-        })
-        // res.redirect("./")
-        console.log(__dirname)
+        const  insertMenuItem = await MenuModel.create(req.body)
+        console.log(insertMenuItem);
+        res.send(insertMenuItem)
+
 
     } catch (err) {
 
@@ -54,6 +50,7 @@ menuRoutes.get('/completeMenu', async (req, res) => {
         })
     }
 })
+
 
 // update user
 menuRoutes.put(`/:uniqueId`, async (req, res) => {
