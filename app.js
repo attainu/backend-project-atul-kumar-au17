@@ -56,6 +56,49 @@ app.get('/signup', (req, res) => {
 //     res.send(dataToSend)
 // })
 
+app.post('/login', async (req, res) => {
+
+    try {
+        const { email, password } = req.body
+        console.log("app.post ~ req.body", req.body)
+
+        if (!email || !password) {
+            res.json({
+                error: true,
+                message: "empty data"
+            })
+            return
+        }
+
+        const checkOldUser = await UserModel.findOne({ email: email })
+
+        if (checkOldUser && checkOldUser.email === email && checkOldUser.password === password) {
+
+            const secret = process.env.SECRET_KEY
+            const jwtToken = jwt.sign({ currentUser: checkOldUser.email }, secret, { expiresIn: '1d' })
+
+            res.json({
+                error: false,
+                message: "User Logged In",
+                token: jwtToken
+            })
+            return
+        }
+        res.json({
+            error: true,
+            message: "User credentials does not match"
+        })
+        
+    } catch (err) {
+
+        res.json({ 
+            error: err,
+            errorObj: err,
+            message: "Unknown Error"
+        })
+    }
+})
+
 
 
 const PORT = process.env.PORT || 4652

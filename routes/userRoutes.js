@@ -3,6 +3,7 @@ const { Router } = require('express');
 const userRoutes = Router()
 
 const { body, validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken')
 
 const UserModel = require('../models/Users');
 
@@ -46,15 +47,33 @@ async (req, res) => {
     }
 );
 
+function checkJWTToken(req, res, next) {
+
+    try {
+
+        const authTokenDecodedData = jwt.verify(req.query.authToken, process.env.SECRET_KEY)
+        console.log(authTokenDecodedData)
+        mext()
+        
+    } catch (error) {
+
+        res.json({
+            error: true,
+            errorObj: error,
+            message: "Invalid Token"
+        })   
+    }
+}
+
 // get all user
-userRoutes.get('/allUsers', async (req, res) => {
+userRoutes.get('/allUsers', checkJWTToken, async (req, res) => {
 
     console.log("getting all users")
 
     try {
 
         const allUsers = await UserModel.find({})
-        console.log(allUsers)
+        // console.log(allUsers)
         res.send(allUsers)
 
     } catch (error) {
