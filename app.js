@@ -36,25 +36,7 @@ app.get('/signup', (req, res) => {
     res.sendFile(`${__dirname}/views/signUp.html`)
 })
 
-// app.post('/login', (req, res) => {
-    
-//     const dataToSend = {
-//         data: req.body,
-//         message: "login successful"
-//     }
 
-//     res.send(dataToSend)
-// })
-
-// app.post('/signup', (req, res) => {
-
-//     const dataToSend = {
-//         data: req.body,
-//         message: "signup successful"
-//     }
-
-//     res.send(dataToSend)
-// })
 
 app.post('/login', async (req, res) => {
 
