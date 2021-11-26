@@ -1,0 +1,81 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+.signUpInForm{
+    width: 300px;
+    margin: auto;
+    align-items: center;
+}
+
+
+.SignIn{
+    font-family: 'Dancing Script', cursive;
+    color: azure;
+}
+
+
+.aks_header {
+    width: 75%;
+    margin: 5px auto;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+
+.part > a > img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.part1 > a > img:hover {
+    width: 100px;
+    border-radius: 50%;
+}
+
+
+.part1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.part2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.part2 > a {
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.5em 0.5em;
+    border-radius: 0.5em;
+    color: black
+}
+
+
+.part2 > a:hover {
+    background: linear-gradient(to bottom, black, black, transparent);
+    /* background-color: black; */
+    color: white;
+    opacity: 1;
+}
+
+
+.part1, .part3 {
+    width: 20%
+}
+
+label {
+    text-transform: capitalize;
+}
+   

@@ -48,12 +48,13 @@ async (req, res) => {
 );
 
 function checkJWTToken(req, res, next) {
+    console.log('Checking JWTToken', req.header.token)
 
     try {
 
-        const authTokenDecodedData = jwt.verify(req.query.authToken, process.env.SECRET_KEY)
+        const authTokenDecodedData = jwt.verify(req.header.token, process.env.SECRET_KEY)
         console.log(authTokenDecodedData)
-        mext()
+        next()
         
     } catch (error) {
 
@@ -65,8 +66,10 @@ function checkJWTToken(req, res, next) {
     }
 }
 
+
+userRoutes.use(checkJWTToken)
 // get all user
-userRoutes.get('/allUsers', checkJWTToken, async (req, res) => {
+userRoutes.get('/allUsers', async (req, res) => {
 
     console.log("getting all users")
 
@@ -148,5 +151,6 @@ userRoutes.delete(`/:uniqueId`, async (req, res) => {
         })
     }
 })
+
 
 module.exports = userRoutes;
